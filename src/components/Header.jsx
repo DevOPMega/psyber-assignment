@@ -74,7 +74,7 @@ const Header = () => {
                 className="px-3 py-6 text-sm font-semibold rounded-md transition-all duration-300 hover:bg-bg-3 hover:text-white"
                 href="/faqs"
               >
-                FAQ'S
+                FAQS
               </Link>
             </li>
             <li>
