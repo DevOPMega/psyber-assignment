@@ -30,7 +30,7 @@ const HomePage = () => {
           Meet Our Founder
         </h2>
         <Image 
-          src="/Pawan panjabi.jpg"
+          src="/unnamed.jpg"
           width={360}
           height={420}
           className="my-6 m-auto"
