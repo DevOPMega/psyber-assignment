@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -38,17 +39,17 @@ const Header = () => {
       </div>
       {/* Navbar */}
       <div className="relative">
-        <div className="flex flex-col justify-between px-4 py-8 md:px-12 md:py-3 md:flex-row md:items-center">
-          {/* Company Logo */}
-          <div className="flex space-x-1 justify-center items-center">
-            <span></span>
-            <span className="flex flex-col">
-              <span className="text-logo text-4xl text-center font-semibold">
-                ALPHAA
-              </span>
-              <span className="text-logo text-sm">FINANCIAL SOLUTIONS</span>
-            </span>
-          </div>
+        <div className="flex flex-col justify-between px-4 py-8 md:px-10 md:py-3 md:flex-row md:items-center lg:px-24">
+          <Link
+            href="/"
+           className="m-auto w-[224px] h-[88px] md:m-0">
+            <Image 
+              src="/logo.png"
+              width={280}
+              height={144}
+              className="scale-150 md:scale-125"
+            />
+          </Link>
           {/* Desktop Navbar Links */}
           <div className="hidden md:block">
             <ul className="flex items-center space-x-1 lg:space-x-5">
