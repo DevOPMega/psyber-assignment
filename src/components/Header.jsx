@@ -1,6 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 const Header = () => {
+  const [toggleMenubar, setToggleMenubar] = useState(false);
+
   return (
     <>
       <div className="px-4 py-5 bg-bg-1 md:px-12">
@@ -31,64 +36,114 @@ const Header = () => {
           </li>
         </ul>
       </div>
-      <div className="flex flex-col justify-between px-4 py-8 md:px-12 md:py-3 md:flex-row md:items-center">
-        {/* Company Logo */}
-        <div className="flex space-x-1 justify-center items-center">
-          <span></span>
-          <span className="flex flex-col">
-            <span className="text-logo text-4xl text-center font-semibold">
-              ALPHAA
+      {/* Navbar */}
+      <div className="relative">
+        <div className="flex flex-col justify-between px-4 py-8 md:px-12 md:py-3 md:flex-row md:items-center">
+          {/* Company Logo */}
+          <div className="flex space-x-1 justify-center items-center">
+            <span></span>
+            <span className="flex flex-col">
+              <span className="text-logo text-4xl text-center font-semibold">
+                ALPHAA
+              </span>
+              <span className="text-logo text-sm">FINANCIAL SOLUTIONS</span>
             </span>
-            <span className="text-logo text-sm">FINANCIAL SOLUTIONS</span>
-          </span>
+          </div>
+          {/* Desktop Navbar Links */}
+          <div className="hidden md:block">
+            <ul className="flex items-center space-x-1 lg:space-x-5">
+              <li>
+                <Link
+                  className="px-3 py-6 text-sm font-semibold rounded-md transition-all duration-300 hover:bg-bg-3 hover:text-white"
+                  href="/"
+                >
+                  HOME
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="px-3 py-6 text-sm font-semibold  rounded-md transition-all duration-300 hover:bg-bg-3 hover:text-white"
+                  href="/about-us"
+                >
+                  ABOUT US
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="px-3 py-6 text-sm font-semibold rounded-md transition-all duration-300 hover:bg-bg-3 hover:text-white"
+                  href="/services"
+                >
+                  SERVICES
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="px-3 py-6 text-sm font-semibold rounded-md transition-all duration-300 hover:bg-bg-3 hover:text-white"
+                  href="/faqs"
+                >
+                  FAQS
+                </Link>
+              </li>
+              <li>
+                <button className="text-sm font-semibold bg-bg-3 px-4 py-3 text-white rounded-md">
+                  CALL US ANYTIME
+                </button>
+              </li>
+            </ul>
+          </div>
+          {/* Hamburger */}
+          <div
+            onClick={() => setToggleMenubar(!toggleMenubar)}
+            className="cursor-pointer md:hidden"
+          >
+            <span
+              style={{ fontSize: "42px" }}
+              className="material-symbols-outlined"
+            >
+              menu
+            </span>
+          </div>
         </div>
-        {/* Desktop Navbar Links */}
-        <div className="hidden md:block">
-          <ul className="flex items-center space-x-1 lg:space-x-5">
-            <li>
+        {/* Mobile Navbar Links */}
+        <div
+          className={`absolute w-full ${
+            toggleMenubar ? "h-[70vh]" : "h-0"
+          }   transition-all duration-500  bg-white z-10 overflow-hidden md:hidden`}
+        >
+          <ul className="flex flex-col">
+            <li className="border-b-2 px-4 py-6 transition-colors duration-200 hover:bg-bg-3 hover:text-white">
               <Link
-                className="px-3 py-6 text-sm font-semibold rounded-md transition-all duration-300 hover:bg-bg-3 hover:text-white"
+                className="px-3 py-6 text-sm font-semibold rounded-md "
                 href="/"
               >
                 HOME
               </Link>
             </li>
-            <li>
+            <li className="border-b-2 px-4 py-6 transition-colors duration-200 hover:bg-bg-3 hover:text-white">
               <Link
-                className="px-3 py-6 text-sm font-semibold  rounded-md transition-all duration-300 hover:bg-bg-3 hover:text-white"
+                className="px-3 py-6 text-sm font-semibold  rounded-md "
                 href="/about-us"
               >
                 ABOUT US
               </Link>
             </li>
-            <li>
+            <li className="border-b-2 px-4 py-6 transition-colors duration-200 hover:bg-bg-3 hover:text-white">
               <Link
-                className="px-3 py-6 text-sm font-semibold rounded-md transition-all duration-300 hover:bg-bg-3 hover:text-white"
+                className="px-3 py-6 text-sm font-semibold rounded-md "
                 href="/services"
               >
                 SERVICES
               </Link>
             </li>
-            <li>
+            <li className="border-b-2 px-4 py-6 transition-colors duration-200 hover:bg-bg-3 hover:text-white">
               <Link
-                className="px-3 py-6 text-sm font-semibold rounded-md transition-all duration-300 hover:bg-bg-3 hover:text-white"
+                className="px-3 py-6 text-sm font-semibold rounded-md"
                 href="/faqs"
               >
                 FAQS
               </Link>
             </li>
-            <li>
-              <button className="text-sm font-semibold bg-bg-3 px-4 py-3 text-white rounded-md">
-                CALL US ANYTIME
-              </button>
-            </li>
           </ul>
-        </div>
-        {/* Mobile Navbar Links */}
-        <div className="md:hidden"></div>
-        {/* Hamburger */}
-        <div className="cursor-pointer md:hidden">
-          <span style={{fontSize: "42px"}} className="material-symbols-outlined">menu</span>
         </div>
       </div>
     </>
